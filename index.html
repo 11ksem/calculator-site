@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Распределение судебных расходов в арбитражных судах</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #0A457A;
+            color: #fff;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .calculator {
+            background-color: #fff;
+            color: #000;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .calculator h2 {
+            margin-top: 0;
+        }
+        .calculator input {
+            margin: 5px 0;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .calculator button {
+            margin-top: 10px;
+            padding: 10px;
+            width: auto;
+            background-color: #0A457A;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .calculator button:hover {
+            background-color: #083963;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Распределение судебных расходов в арбитражных судах</h1>
+    
+    <div class="calculator" id="price-calculator">
+        <h2>Рассчет размера государственной пошлины (с учетом положения пп. 1 п. 1 ст. 333.21 НК РФ)</h2>
+        <input type="text" id="price-input" placeholder="Введите выражение для суммы иска (например, 1000+2000)" onkeypress="handleEnter(event, calculatePriceAndDuty)">
+        <button onclick="calculatePriceAndDuty()">Рассчитать госпошлину</button>
+        <p>Сумма исковых требований: <span id="total-price">0</span> руб.</p>
+        <p>Государственная пошлина: <span id="state-duty">0</span> руб.</p>
+    </div>
+
+    <div class="calculator" id="satisfied-claims-calculator">
+        <h2>Рассчет размера государственной пошлины, соответсвующей размеру удовлетворенных требований</h2>
+        <input type="text" id="satisfied-input" placeholder="Введите выражение для удовлетворенных требований (например, 500+300)" onkeypress="handleEnter(event, calculateSatisfiedClaims)">
+        <button onclick="calculateSatisfiedClaims()">Рассчитать</button>
+        <p>Размер удовлетворенных требований: <span id="total-satisfied">0</span> руб.</p>
+        <p>Государственная пошлина, подлежащая взысканию: <span id="duty-to-be-collected">0</span> руб.</p>
+        <p>% удовлетворенных требований: <span id="percent-satisfied">0</span>%</p>
+    </div>
+
+    <div class="calculator" id="expenses-calculator">
+        <h2>Рассчет размера судебных издержек </h2>
+        <input type="number" id="expenses" placeholder="Введите размер издержек">
+        <button onclick="calculateExpenses()">Рассчитать издержки</button>
+        <p>Размер судебных издержек, относящихся на ответчика: <span id="defendant-expenses">0</span> руб.</p>
+        <p>Размер судебных издержек, относящихся на истца: <span id="plaintiff-expenses">0</span> руб.</p>
+    </div>
+
+    <div class="footer">
+        Настоящий сайт был создан сотрудником Арбитражного суда Республики Крым помощником судьи Бажиной А.С. с целью оптимизации рабочего процесса.
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

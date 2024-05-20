@@ -58,18 +58,18 @@
     
     <div class="calculator" id="price-calculator">
         <h2>Расчёт размера государственной пошлины (с учетом положения пп. 1 п. 1 ст. 333.21 НК РФ)</h2>
-        <input type="text" id="price-input" placeholder="Введите выражение для суммы иска (например, 1000+2000)" onkeypress="handleEnter(event, calculatePrice)">
-        <button onclick="calculatePrice()">Рассчитать сумму иска и госпошлину</button>
+        <input type="text" id="price-input" placeholder="Введите выражение для суммы иска (например, 1000+2000)" onkeypress="handleEnter(event, calculatePriceAndDuty)">
+        <button onclick="calculatePriceAndDuty()">Рассчитать госпошлину</button>
         <p>Сумма иска: <span id="total-price">0</span> руб.</p>
         <p>Государственная пошлина: <span id="state-duty">0</span> руб.</p>
     </div>
 
     <div class="calculator" id="satisfied-claims-calculator">
-        <h2>Расчёт размера государственной пошлины, соответсвующей размеру удовлетворенных требований</h2>
+        <h2>Расчёт размера государственной пошлины, соответствующей размеру удовлетворенных требований</h2>
         <input type="text" id="satisfied-input" placeholder="Введите выражение для удовлетворенных требований (например, 500+300)" onkeypress="handleEnter(event, calculateSatisfiedClaims)">
         <button onclick="calculateSatisfiedClaims()">Рассчитать</button>
         <p>Размер удовлетворенных требований: <span id="total-satisfied">0</span> руб.</p>
-        <p>Государственная пошлина, подлежащая взысканию: <span id="duty-to-be-collected">0</span> руб.</p>
+        <p>Государственная пошлина подлежащая взысканию: <span id="duty-to-be-collected">0</span> руб.</p>
         <p>% удовлетворенных требований: <span id="percent-satisfied">0</span>%</p>
     </div>
 

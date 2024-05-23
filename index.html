@@ -16,6 +16,20 @@
             color: #fff;
             text-transform: uppercase;
         }
+        .button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #0A457A;
+            color: #fff;
+            border: 1px solid #fff; /* Добавлена тонкая белая рамка */
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #083963;
+        }
         .calculator {
             background-color: #fff;
             color: #000;
@@ -51,10 +65,79 @@
             text-align: center;
             margin-top: 50px;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            color: #000;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <h1>Распределение судебных расходов в арбитражных судах</h1>
+    <button class="button" onclick="openModal()">Инструкция</button>
+
+    <div class="modal" id="instructionModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Инструкция по использованию сайта для расчета судебных расходов</h2>
+            <p>Добро пожаловать на сайт для расчета судебных расходов в арбитражных судах. Этот сайт поможет вам рассчитать цену иска, государственную пошлину и размер судебных издержек. Вот как им пользоваться:</p>
+            <ol>
+                <li>Введите выражение для суммы иска:
+                    <ul>
+                        <li>В поле "Введите выражение для суммы иска" введите все необходимые суммы и математические операции (например, `1000 + 2000`). Вы можете использовать как точку, так и запятую для ввода нецелых чисел;</li>
+                        <li>Нажмите кнопку "Рассчитать сумму иска" или клавишу Enter;</li>
+                        <li>Сумма иска отобразится в поле "Сумма иска";</li>
+                        <li>Размер государственной пошлины отобразится в поле "Государственная пошлина".</li>
+                    </ul>
+                </li>
+                <li>Введите выражение для удовлетворенных требований:
+                    <ul>
+                        <li>В поле "Введите выражение для удовлетворенных требований" введите суммы и математические операции (например, `500 + 300`). Вы можете использовать как точку, так и запятую для ввода нецелых чисел;</li>
+                        <li>Нажмите кнопку "Рассчитать" или клавишу Enter;</li>
+                        <li>Размер удовлетворенных требований, государственная пошлина, подлежащая взысканию, и процент удовлетворенных требований отобразятся в соответствующих полях.</li>
+                    </ul>
+                </li>
+                <li>Введите размер издержек:
+                    <ul>
+                        <li>Введите сумму издержек в поле "Введите размер издержек";</li>
+                        <li>Нажмите кнопку "Рассчитать издержки";</li>
+                        <li>Размер издержек, относящихся на ответчика, и размер издержек, относящихся на истца, отобразятся в соответствующих полях.</li>
+                    </ul>
+                </li>
+            </ol>
+            <p>Буду рада тому, что этот сайт поможет Вам быстро и точно рассчитать необходимые судебные расходы.</p>
+        </div>
+    </div>
     
     <div class="calculator" id="price-calculator">
         <h2>Расчёт размера государственной пошлины (с учетом положения пп. 1 п. 1 ст. 333.21 НК РФ)</h2>

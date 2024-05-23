@@ -87,3 +87,20 @@ document.getElementById('price-input').addEventListener('keypress', function(eve
 document.getElementById('expenses').addEventListener('keypress', function(event) {
     handleEnter(event, calculateExpenses);
 });
+
+// Функции для открытия и закрытия модального окна
+function openModal() {
+    document.getElementById('instructionModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('instructionModal').style.display = 'none';
+}
+
+// Закрытие модального окна при клике вне его
+window.onclick = function(event) {
+    const modal = document.getElementById('instructionModal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+}
